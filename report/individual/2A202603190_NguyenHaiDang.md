@@ -2,9 +2,9 @@
 
 **Cách dùng:** Thay mọi dấu `…` bằng bài làm thật của bạn trước khi nộp link fork trên [LMS](https://aithucchien.vinuni.edu.vn). Giữ nguyên bốn mục và bảng để coach đọc nhanh. Viết ngắn, cụ thể theo ảnh/vùng; không cần thuật ngữ chuyên sâu. Ví dụ trong [hướng dẫn mẫu](../../reports/REPORT_TEMPLATE.md) chỉ giúp hiểu cách điền, không phải câu trả lời để chép lại.
 
-- Mã học viên theo lớp: …
-- Ngày / CVAT local: …
-- Công cụ đã dùng: …
+- Mã học viên theo lớp: 2A202603190
+- Ngày / CVAT local: 12/11/2026
+- Công cụ đã dùng: CVAT / openCV có sẵn trên CVAT
 
 Mã học viên là mã lớp cấp; không cần ghi họ tên trong report nếu kênh [LMS](https://aithucchien.vinuni.edu.vn) đã nhận diện bạn. Chỉ ghi công cụ thật sự đã dùng; không có SAM vẫn làm bài bình thường.
 
@@ -14,8 +14,8 @@ Ghi tên ZIP đúng như file trong `submissions/` và số ảnh đã vẽ, Sav
 
 | Task | File ZIP đúng tên | Hoàn thành mấy ảnh | Điểm tối đa (coach chấm sau) |
 | --- | --- | ---: | ---: |
-| easy_semantic | job_3_annotations_2026_11_12_03_52_25_segmentation mask 1.1.zip | 3 / 3 | 20 |
-| medium_instance | … | 3 / 3 | 32 |
+| easy_semantic | easy_semantic.zip | 3 / 3 | 20 |
+| medium_instance | medium_instance.zip | 3 / 3 | 32 |
 | hard_panoptic | … | … / 2 | 30 |
 | cp1_holes | … | … / 1 | 3 |
 | cp2_slice | … | … / 1 | 3 |
@@ -31,20 +31,20 @@ Nếu export lỗi, ghi task, dữ liệu đã Save đến đâu và lỗi đã 
 
 Chọn object đầu tiên bạn tự vẽ ở `medium_instance`, trước khi xem bất kỳ đề xuất tự động nào cho object đó. Ghi ảnh/vị trí đủ để tìm lại; “quy tắc biên” là lý do bạn chọn hoặc dừng mask ở ranh đó.
 
-- Ảnh, vị trí và object Medium đầu tiên tự vẽ: …
-- Class và quy tắc tôi dùng để chọn biên: …
-- Nếu dùng gợi ý sau đó: vùng gợi ý sai/đúng, hành động sửa/giữ và lý do: …
+- Ảnh, vị trí và object Medium đầu tiên tự vẽ: person 24
+- Class và quy tắc tôi dùng để chọn biên: những phần thấy rõ và xác định được biên (silhouette) của người cần annotate thì vè biên sát vị trí ấy
+- Nếu dùng gợi ý sau đó: vùng gợi ý sai/đúng, hành động sửa/giữ và lý do: không dùng. Lí do: mask ở vùng này bắt đầu sai lệch khá nhiều, mask cũng không cần phải quá đúng như các vùng lớn, trung tâm ảnh. Dẫn đến việc chỉnh sửa/xóa điểm của mask tốn nhiều thời gian và công sức hơn việc tự vẽ.
 - Nếu không dùng gợi ý: ghi “không dùng”; vẫn giải thích một quyết định gán nhãn của mình.
 
 ## 3. Một lỗi tôi tìm thấy và sửa
 
 Chọn một lỗi **có thật** trong bài. Nếu công cụ lỗi khiến bạn chưa sửa được, ghi rõ đã thử gì và cần coach hỗ trợ gì; không ghi “đã sửa” khi chưa sửa.
 
-- Task/ảnh/vùng: …
-- Lỗi thuộc loại: sai lớp / thiếu-thừa vật / gộp-tách / biên / phủ vùng / khác: …
-- Bằng chứng tôi nhìn thấy: …
-- Quy tắc và hành động sửa: …
-- Sau sửa đã Save và export lại chưa? …
+- Task/ảnh/vùng: task medium_instance, ảnh 1
+- Lỗi thuộc loại: sai lớp / thiếu-thừa vật / gộp-tách / biên / phủ vùng / khác: gộp
+- Bằng chứng tôi nhìn thấy: 2 người mặc cùng màu áo, di chuyển sát nhau ở khu vực xa
+- Quy tắc và hành động sửa: ước lượng, kết hợp với silhouette thấy được để vẽ biên, người thấy không rõ (bị che khuất quá nhiều) thì không annottate
+- Sau sửa đã Save và export lại chưa? Đã save và export
 
 Nếu bạn **đã xem Summary tự đánh giá trên GitHub Actions hoặc tự chạy script**, ghi ngắn một kết quả liên quan lỗi vừa sửa (ví dụ task, metric trước/sau nếu có): … / chưa có điểm. Scorecard ba tier tối đa **82**, không phải điểm cuối trên 100. Không tự ghi PASS/top 3/bonus; người phụ trách xác nhận theo tiêu chí lớp. Không đưa file ground truth vào fork.
 
@@ -54,6 +54,6 @@ Mỗi ca là một **vùng cụ thể** khiến bạn phải cân nhắc hai cá
 
 | Ảnh/vị trí | Hai cách hiểu có thể | Quy tắc/chứng cứ | Quyết định hoặc câu hỏi cho coach |
 | --- | --- | --- | --- |
-| 1 | … | … | … |
-| 2 | … | … | … |
-| 3 | … | … | … |
+| 1 — `medium_instance`, `000000458325.jpg`: nhóm người cạnh xe đẩy ở xa, bên trái người trượt ván | Gộp các vùng áo gần màu thành một người / tách thành nhiều người đứng sát nhau. | Có nhiều đầu và thân người riêng, nhưng vùng nhỏ và che khuất nhau. Hai vật cùng lớp sát nhau vẫn là hai instance; chỉ vẽ phần nhìn thấy. | Tách `person` khi còn nhận ra biên từng người. Với người bị che quá nhiều như trường hợp đã nêu ở mục 3, hỏi coach: dấu hiệu nhìn thấy tối thiểu nào đủ để tạo thêm instance, thay vì bỏ qua hoặc tự đoán biên? |
+| 2 — `medium_instance`, `000000181542.jpg`: xe máy phía sau người phụ nữ áo dài trắng ở giữa ảnh | Các mảng xe hai bên người phụ nữ là hai object / là các phần nhìn thấy của cùng một xe bị che. | Phần đuôi và bánh sau ở bên trái, bánh trước ở bên phải người phụ nữ. Theo phiếu quy tắc, một vật bị che thành các mảng rời vẫn có thể là một instance; người lái thuộc lớp `person` riêng. | Giữ một instance `motorcycle` cho các phần nhìn thấy của cùng xe, tách người lái thành `person`; dừng biên tại người phụ nữ, không tự vẽ bù phần xe bị che. |
+| 3 — `easy_semantic`, `817bca71-00000000.jpg`: mép đường cong sát vỉa hè phía dưới bên phải ảnh | Xếp vùng sát mép vào `road` theo màu mặt đường / xếp phần dành cho người đi bộ vào `sidewalk` theo bó vỉa và chức năng. | Có bó vỉa cong ngăn mặt đường với lối đi dọc nhà; bóng cây làm độ sáng thay đổi. Quy tắc yêu cầu phân biệt `road`–`sidewalk` theo chức năng và bó vỉa, không chỉ theo màu. | Chọn `sidewalk` cho phần vỉa hè dọc nhà, `road` cho mặt đường; bám mép bó vỉa nhìn thấy, không lấy ranh bóng đổ làm biên. |
